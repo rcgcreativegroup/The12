@@ -399,6 +399,111 @@ footer p {
 }
 footer a { color: var(--gold); text-decoration: none; }
 
+/* CREATOR */
+.creator-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5rem;
+  align-items: start;
+  margin-top: 3.5rem;
+}
+.creator-logo-wrap {
+  margin-bottom: 1.75rem;
+}
+.creator-logo-wrap img {
+  width: 100%;
+  max-width: 340px;
+  height: auto;
+  display: block;
+}
+.creator-bio {
+  font-size: 1rem;
+  line-height: 1.85;
+  color: rgba(240,232,213,0.78);
+  margin-bottom: 2rem;
+}
+.creator-creds {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+}
+.creator-creds li {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 0.9rem;
+  letter-spacing: 0.05em;
+  color: var(--cream);
+  display: flex;
+  gap: 0.6rem;
+  align-items: flex-start;
+  line-height: 1.4;
+}
+.creator-creds li .arrow {
+  color: var(--gold);
+  font-weight: 700;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+.creator-quote-block {
+  background: var(--card);
+  border: 1px solid var(--gold);
+  padding: 2rem;
+}
+.creator-quote-mark {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 4.5rem;
+  color: var(--gold);
+  line-height: 0.6;
+  display: block;
+  margin-bottom: 1rem;
+}
+.creator-quote-text {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.3rem;
+  font-style: italic;
+  color: var(--cream);
+  line-height: 1.65;
+  margin-bottom: 1.5rem;
+}
+.creator-quote-rule {
+  height: 1px;
+  background: rgba(200,168,75,0.3);
+  margin-bottom: 1rem;
+}
+.creator-quote-name {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--gold);
+  letter-spacing: 0.05em;
+  margin-bottom: 0.25rem;
+}
+.creator-quote-sub {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 0.7rem;
+  color: var(--muted);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+.creator-note {
+  text-align: center;
+  margin-top: 3rem;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1rem;
+  font-style: italic;
+  color: var(--muted);
+  max-width: 680px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.7;
+}
+@media (max-width: 768px) {
+  .creator-grid {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+}
+
 /* MOBILE */
 @media (max-width: 900px) {
   .tiers-grid { grid-template-columns: 1fr; max-width: 480px; margin-left: auto; margin-right: auto; }
@@ -516,6 +621,65 @@ footer a { color: var(--gold); text-decoration: none; }
         <p>On-site activation at the live finale event. Booths, naming rights, VIP access, and experiential marketing at the season's most-watched moment.</p>
       </div>
     </div>
+  </div>
+</section>
+
+<!-- CREATOR -->
+<section id="creator">
+  <div class="section-inner">
+    <p class="section-label">Meet the Creator</p>
+    <h2 class="section-heading">Born on the Idol Stage.<br><em>Built for This Moment.</em></h2>
+
+    <div class="creator-grid">
+
+      <!-- LEFT: Bio + Credentials -->
+      <div>
+        <p class="creator-bio">
+          Lil Rounds is the creator and host of The 12 — and she knows exactly what it
+          takes to stand on a world stage. A Memphis native whose grandfather worked
+          alongside the legendary B.B. King, she carried that musical legacy all the way
+          to American Idol Season 8, becoming a Top 7 Finalist and completing the full
+          national tour. Now she brings that firsthand stage experience, industry knowledge,
+          and cultural authority to The 12 as its creator and host.
+        </p>
+        <ul class="creator-creds">
+          <li><span class="arrow">→</span> American Idol® Season 8 &nbsp;·&nbsp; Top 7 Finalist</li>
+          <li><span class="arrow">→</span> Golden Ticket — Kansas City &nbsp;·&nbsp; Beat 100,000+ Competitors</li>
+          <li><span class="arrow">→</span> All 4 Judges Voted YES — Called "A Mix of Mary J. Blige &amp; Fantasia"</li>
+          <li><span class="arrow">→</span> Performed for 80 Million+ Live Viewers</li>
+          <li><span class="arrow">→</span> Last African-American Female Standing — Season 8</li>
+          <li><span class="arrow">→</span> Completed the Full American Idol® National Tour</li>
+          <li><span class="arrow">→</span> Music Bloodline — Grandfather Worked with B.B. King</li>
+          <li><span class="arrow">→</span> Creator &amp; Host of The 12 Memphis Vocal Competition</li>
+        </ul>
+      </div>
+
+      <!-- RIGHT: Logo + Quote -->
+      <div>
+        <div class="creator-logo-wrap">
+          <img
+            src="american_idol_logo.png"
+            alt="American Idol Season 8 — 2009"
+            style="border-radius: 8px; max-width: 300px;"
+          >
+        </div>
+        <div class="creator-quote-block">
+          <span class="creator-quote-mark">&ldquo;</span>
+          <p class="creator-quote-text">
+            Lil could sing the phone book and still sound amazing.
+          </p>
+          <div class="creator-quote-rule"></div>
+          <p class="creator-quote-name">— Lionel Richie</p>
+          <p class="creator-quote-sub">Celebrity Mentor &nbsp;·&nbsp; American Idol® Season 8 &nbsp;·&nbsp; Motown Week</p>
+        </div>
+      </div>
+
+    </div>
+
+    <p class="creator-note">
+      As creator of The 12, Lil Rounds brings firsthand knowledge of what it takes
+      to compete on the world's biggest stage — and what artists need to succeed beyond it.
+    </p>
   </div>
 </section>
 
