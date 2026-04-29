@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The 12 – Memphis Vocal Competition</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=Barlow+Condensed:wght@300;400;500;600;700;800&family=Barlow:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --black:   #080808;
+  --deep:    #0f0f0f;
+  --coal:    #181818;
+  --card:    #1c1c1c;
+  --border:  #2a2a2a;
+  --crimson: #9B1D20;
+  --crimson2:#C0282C;
+  --gold:    #C8A84B;
+  --gold2:   #E2C97E;
+  --cream:   #F0E8D5;
+  --white:   #FFFFFF;
+  --muted:   #888888;
+  --gray:    #555555;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--black);
+  color: var(--cream);
+  font-family: 'Barlow', sans-serif;
+  font-weight: 300;
+  overflow-x: hidden;
+}
+
+/* ── NAV ── */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 1.2rem 3rem;
+  background: linear-gradient(to bottom, rgba(8,8,8,0.95), transparent);
+  backdrop-filter: blur(4px);
+}
+.nav-logo {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.1rem; font-weight: 600; letter-spacing: 0.15em;
+  color: var(--gold); text-decoration: none;
+  display: flex; flex-direction: column; line-height: 1.1;
+}
+.nav-logo span { font-size: 0.55rem; font-weight: 300; letter-spacing: 0.3em; color: var(--muted); text-transform: uppercase; }
+.nav-links { display: flex; gap: 2.5rem; list-style: none; }
+.nav-links a {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 0.75rem; letter-spacing: 0.2em; text-transform: uppercase;
+  color: var(--cream); text-decoration: none; opacity: 0.7;
+  transition: opacity 0.2s, color 0.2s;
+}
+.nav-links a:hover { opacity: 1; color: var(--gold); }
+.nav-cta {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase;
+  background: var(--crimson); color: var(--white);
+  padding: 0.6rem 1.4rem; text-decoration: none;
+  border: 1px solid var(--crimson2);
+  transition: background 0.2s;
+}
+.nav-cta:hover { background: var(--crimson2); }
+
+/* ── HERO ── */
+.hero {
+  min-height: 100vh;
+  display: flex; flex-direction: column; justify-content: center; align-items: center;
+  position: relative; overflow: hidden; text-align: center;
+  padding: 0 1.5rem;
+}
+.hero-bg {
+  position: absolute; inset: 0;
+  background:
+    radial-gradient(ellipse 60% 50% at 50% 60%, rgba(155,29,32,0.18) 0%, transparent 70%),
+    radial-gradient(ellipse 80% 60% at 50% 100%, rgba(200,168,75,0.08) 0%, transparent 60%),
+    var(--black);
+}
+.hero-bg::after {
+  content: '';
+  position: absolute; inset: 0;
+  background-image: repeating-linear-gradient(0deg, transparent, transparent 79px, rgba(255,255,255,0.015) 80px),
+                    repeating-linear-gradient(90deg, transparent, transparent 79px, rgba(255,255,255,0.015) 80px);
+}
+.hero-eyebrow {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 0.7rem; letter-spacing: 0.4em; text-transform: uppercase;
+  color: var(--gold); opacity: 0.9; margin-bottom: 1.8rem;
+  position: relative;
+}
+.hero-eyebrow::before, .hero-eyebrow::after {
+  content: '—'; margin: 0 1rem; opacity: 0.5;
+}
+.hero-title {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: clamp(5rem, 22vw, 18rem);
+  font-weight: 800; line-height: 0.85;
+  letter-spacing: -0.02em;
+  color: var(--gold);
+  position: relative;
+  text-shadow: 0 0 80px rgba(200,168,75,0.25), 0 4px 40px rgba(0,0,0,0.8);
+  animation: titleReveal 1.2s cubic-bezier(0.16,1,0.3,1) forwards;
+}
+.hero-the {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(1.5rem, 5vw, 4rem);
+  font-weight: 300; letter-spacing: 0.4em;
+  color: var(--cream); opacity: 0.85;
+  display: block; margin-bottom: 0.2rem;
+}
+.hero-sub {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: clamp(0.75rem, 2vw, 1rem);
+  letter-spacing: 0.35em; text-transform: uppercase;
+  color: var(--cream); opacity: 0.6; margin-top: 1.5rem;
+}
+.hero-rule {
+  width: 60px; height: 2px;
+  background: linear-gradient(90deg, transparent, var(--crimson), transparent);
+  margin: 2rem auto;
+}
+.hero-tagline {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(1.1rem, 3vw, 1.6rem);
+  font-weight: 300; font-style: italic;
+  color: var(--cream); opacity: 0.75;
+  max-width: 520px; line-height: 1.5;
+}
+.hero-actions {
+  display: flex; gap: 1.2rem; margin-top: 3rem;
+  flex-wrap: wrap; justify-content: center;
+}
+.btn-primary {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 0.8rem; letter-spacing: 0.25em; text-transform: uppercase;
+  background: var(--crimson); color: var(--white);
+  padding: 1rem 2.5rem; text-decoration: none;
+  border: 1px solid var(--crimson2);
+  transition: all 0.2s; display: inline-block;
+}
+.btn-primary:hover { background: var(--crimson2); transform: translateY(-1px); }
+.btn-outline {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 0.8rem; letter-spacing: 0.25em; text-transform: uppercase;
+  background: transparent; color: var(--gold);
+  padding: 1rem 2.5rem; text-decoration: none;
+  border: 1px solid rgba(200,168,75,0.4);
+  transition: all 0.2s; display: inline-block;
+}
+.btn-outline:hover { border-color: var(--gold); background: rgba(200,168,75,0.06); }
+.scroll-hint {
+  position: absolute; bottom: 2rem; left: 50%; transform: translateX(-50%);
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 0.6rem; letter-spacing: 0.3em; text-transform: uppercase;
+  color: var(--muted); display: flex; flex-direction: column; align-items: center; gap: 0.5rem;
+}
+.scroll-hint::after {
+  content: ''; width: 1px; height: 40px;
+  background: linear-gradient(to bottom, var(--gold), transparent);
+  animation: scrollLine 2s ease-in-out infinite;
+}
+@keyframes scrollLine { 0%,100%{opacity:0.3;transform:scaleY(0.5)} 50%{opacity:1;transform:scaleY(1)} }
+@keyframes titleReveal { from{opacity:0;transform:translateY(30px)} to{opacity:1;transform:translateY(0)} }
+
+/* ── ABOUT STRIP ── */
+.about-strip {
+  background: var(--crimson);
+  padding: 1.2rem 3rem;
+  display: flex; align-items: center; justify-content: center;
+  gap: 3rem; flex-wrap: wrap;
+}
+.strip-item {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 0.75rem; letter-spacing: 0.25em; text-transform: uppercase;
+  color: rgba(255,255,255,0.9);
+  display: flex; align-items: center; gap: 0.6rem;
+}
+.strip-dot { width: 4px; height: 4px; background: rgba(255,255,255,0.5); border-radius: 50%; }
+
+/* ── SECTIONS ── */
+section { padding: 6rem 3rem; }
+.section-inner { max-width: 1100px; margin: 0 auto; }
+.section-label {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 0.65rem; letter-spacing: 0.4em; text-transform: uppercase;
+  color: var(--gold); margin-bottom: 1rem;
+  display: flex; align-items: center; gap: 1rem;
+}
+.section-label::after { content: ''; flex: 1; max-width: 60px; height: 1px; background: var(--gold); opacity: 0.4; }
+.section-heading {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 600; line-height: 1.1;
+  color: var(--white); margin-bottom: 1.5rem;
+}
+.section-heading em { color: var(--gold); font-style: italic; }
+
+/* ── WHAT IS THE 12 ── */
+.what-grid {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 5rem; align-items: center;
+  margin-top: 4rem;
+}
+.what-text p {
+  font-size: 1.05rem; line-height: 1.8; color: rgba(240,232,213,0.75);
+  margin-bottom: 1.5rem;
+}
+.what-text p strong { color: var(--cream); font-weight: 500; }
+.what-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+.what-card {
+  background: var(--card); border: 1px solid var(--border);
+  padding: 1.5rem; position: relative; overflow: hidden;
+}
+.what-card::before {
+  content: ''; position: absolute; top: 0; left: 0;
+  width: 3px; height: 100%; background: var(--crimson);
+}
+.what-card-num {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 2.5rem; font-weight: 800; color: rgba(200,168,75,0.15);
+  line-height: 1; margin-bottom: 0.5rem;
+}
+.what-card h4 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1rem; font-weight: 600; color: var(--gold);
+  margin-bottom: 0.4rem;
+}
+.what-card p { font-size: 0.8rem; color: var(--muted); line-height: 1.5; }
+
+/* ── EPISODES ── */
+.episodes { background: var(--deep); }
+.ep-list { margin-top: 3rem; }
+.ep-item {
+  display: grid; grid-template-columns: 100px 200px 1fr;
+  gap: 2rem; align-items: center;
+  padding: 1.5rem 0; border-bottom: 1px solid var(--border);
+  transition: background 0.2s;
+}
+.ep-item:first-child { border-top: 1px solid var(--border); }
+.ep-item:hover { background: rgba(255,255,255,0.02); padding-left: 1rem; }
+.ep-num {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 0.65rem; letter-spacing: 0.25em; text-transform: uppercase;
+  color: var(--gold); opacity: 0.7;
+}
+.ep-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.3rem; font-weight: 600; color: var(--white);
+}
+.ep-desc { font-size: 0.9rem; color: var(--muted); line-height: 1.6; }
+
+/* ── GENRES ── */
+.genres-grid {
+  display: flex; flex-wrap: wrap; gap: 0.75rem;
+  margin-top: 2.5rem;
+}
+.genre-tag {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 0.75rem; letter-spacing: 0.2em; text-transform: uppercase;
+  padding: 0.6rem 1.4rem;
+  border: 1px solid var(--border); color: var(--muted);
+  transition: all 0.2s; cursor: default;
+}
+.genre-tag:hover, .genre-tag.active {
+  border-color: var(--crimson); color: var(--white);
+  background: rgba(155,29,32,0.12);
+}
+.genre-tag.active { color: var(--gold); border-color: var(--gold); background: rgba(200,168,75,0.08); }
+
+/* ── HOW TO ENTER ── */
+.enter { background: var(--coal); }
+.steps-grid {
+  display: grid; grid-template-columns: repeat(4, 1fr);
+  gap: 2rem; margin-top: 3.5rem;
+}
+.step {
+  text-align: center; padding: 2rem 1rem;
+  border-top: 2px solid var(--border);
+  transition: border-color 0.2s;
+}
+.step:hover { border-color: var(--crimson); }
+.step-num {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 3.5rem; font-weight: 800;
+  color: rgba(200,168,75,0.2); line-height: 1;
+  margin-bottom: 1rem;
+}
+.step h4 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.1rem; font-weight: 600; color: var(--gold);
+  margin-bottom: 0.6rem;
+}
+.step p { font-size: 0.85rem; color: var(--muted); line-height: 1.6; }
+
+/* ── MEMPHIS ── */
+.memphis-block {
+  background: var(--crimson);
+  padding: 5rem 3rem; text-align: center;
+}
+.memphis-block h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(2rem, 6vw, 4rem);
+  font-weight: 300; font-style: italic;
+  color: var(--white); margin-bottom: 1rem;
+}
+.memphis-block p {
+  font-size: 1rem; color: rgba(255,255,255,0.75);
+  max-width: 600px; margin: 0 auto 2.5rem; line-height: 1.8;
+}
+
+/* ── CTA FINAL ── */
+.cta-final {
+  text-align: center; padding: 7rem 3rem;
+  position: relative; overflow: hidden;
+}
+.cta-final::before {
+  content: '12';
+  position: absolute; left: 50%; top: 50%;
+  transform: translate(-50%,-50%);
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 40vw; font-weight: 800;
+  color: rgba(200,168,75,0.03);
+  line-height: 1; pointer-events: none;
+  white-space: nowrap;
+}
+.cta-final h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 600; color: var(--white);
+  margin-bottom: 1rem; position: relative;
+}
+.cta-final p {
+  font-size: 1rem; color: var(--muted);
+  max-width: 480px; margin: 0 auto 2.5rem; line-height: 1.7;
+  position: relative;
+}
+.cta-pair { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; position: relative; }
+
+/* ── FOOTER ── */
+footer {
+  background: var(--deep); border-top: 1px solid var(--border);
+  padding: 3rem; text-align: center;
+}
+footer p {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase;
+  color: var(--gray);
+}
+footer a { color: var(--gold); text-decoration: none; }
+footer a:hover { text-decoration: underline; }
+
+/* ── MOBILE ── */
+@media (max-width: 768px) {
+  nav { padding: 1rem 1.5rem; }
+  .nav-links { display: none; }
+  section { padding: 4rem 1.5rem; }
+  .what-grid { grid-template-columns: 1fr; gap: 3rem; }
+  .what-cards { grid-template-columns: 1fr 1fr; }
+  .steps-grid { grid-template-columns: 1fr 1fr; }
+  .ep-item { grid-template-columns: 80px 1fr; }
+  .ep-desc { display: none; }
+  .about-strip { gap: 1.5rem; padding: 1rem 1.5rem; }
+  .hero-actions { flex-direction: column; align-items: center; }
+}
+@media (max-width: 480px) {
+  .what-cards { grid-template-columns: 1fr; }
+  .steps-grid { grid-template-columns: 1fr; }
+  .ep-item { grid-template-columns: 1fr; }
+  .ep-num { display: none; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="the12-home.html" class="nav-logo">
+    The 12
+    <span>Memphis Vocal Competition</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#episodes">The Show</a></li>
+    <li><a href="#enter">How to Enter</a></li>
+    <li><a href="the12-sponsors.html">Sponsors</a></li>
+  </ul>
+  <a href="the12-register.html" class="nav-cta">Apply Now</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <p class="hero-eyebrow">Memphis, Tennessee</p>
+  <h1 class="hero-title">
+    <span class="hero-the">THE</span>
+    12
+  </h1>
+  <p class="hero-sub">Memphis Vocal Competition</p>
+  <div class="hero-rule"></div>
+  <p class="hero-tagline">Every genre. Every story. One stage. One winner.</p>
+  <div class="hero-actions">
+    <a href="the12-register.html" class="btn-primary">Submit Your Audition</a>
+    <a href="#about" class="btn-outline">Learn More</a>
+  </div>
+  <div class="scroll-hint">Scroll</div>
+</section>
+
+<!-- STRIP -->
+<div class="about-strip">
+  <div class="strip-item"><span class="strip-dot"></span> 8 Episodes</div>
+  <div class="strip-item"><span class="strip-dot"></span> 12 Vocalists</div>
+  <div class="strip-item"><span class="strip-dot"></span> All Genres Welcome</div>
+  <div class="strip-item"><span class="strip-dot"></span> Live Finale Event</div>
+  <div class="strip-item"><span class="strip-dot"></span> Memphis, TN</div>
+  <div class="strip-item"><span class="strip-dot"></span> Regional + Streaming Distribution</div>
+</div>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="section-inner">
+    <p class="section-label">What Is The 12</p>
+    <h2 class="section-heading">One City.<br><em>Infinite Voices.</em></h2>
+    <div class="what-grid">
+      <div class="what-text">
+        <p>The 12 is Memphis's first premier vocal competition series — an <strong>8-episode TV experience</strong> open to singers of every genre. R&amp;B. Gospel. Country. Hip-Hop. Pop. Soul. If you have a voice and a story, you belong here.</p>
+        <p>12 vocalists are selected from open auditions. They compete across performances, challenges, and live events — with audiences voting, judges guiding, and Memphis watching.</p>
+        <p>This isn't just a competition. It's a <strong>platform, a launchpad, and a celebration</strong> of the talent that's always been in this city.</p>
+        <a href="the12-register.html" class="btn-primary" style="margin-top:1rem">Submit Your Audition</a>
+      </div>
+      <div class="what-cards">
+        <div class="what-card">
+          <div class="what-card-num">12</div>
+          <h4>Vocalists</h4>
+          <p>Curated from open auditions across the region</p>
+        </div>
+        <div class="what-card">
+          <div class="what-card-num">8</div>
+          <h4>Episodes</h4>
+          <p>Full season from auditions to live finale</p>
+        </div>
+        <div class="what-card">
+          <div class="what-card-num">∞</div>
+          <h4>Genres</h4>
+          <p>Every musical style is welcome here</p>
+        </div>
+        <div class="what-card">
+          <div class="what-card-num">1</div>
+          <h4>Winner</h4>
+          <p>Crowned at a live finale event in Memphis</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GENRES -->
+<section style="padding-top:0">
+  <div class="section-inner">
+    <p class="section-label">Open to All Genres</p>
+    <h2 class="section-heading">Your Sound.<br><em>Your Stage.</em></h2>
+    <p style="color:var(--muted);line-height:1.7;max-width:580px;margin-bottom:0.5rem">
+      The 12 doesn't box you in. Compete in the genre you love — or surprise everyone with something no one expected.
+    </p>
+    <div class="genres-grid">
+      <div class="genre-tag active">R&amp;B / Soul</div>
+      <div class="genre-tag active">Gospel</div>
+      <div class="genre-tag">Hip-Hop</div>
+      <div class="genre-tag">Pop</div>
+      <div class="genre-tag">Country</div>
+      <div class="genre-tag">Blues</div>
+      <div class="genre-tag">Rock</div>
+      <div class="genre-tag">Jazz</div>
+      <div class="genre-tag">Neo-Soul</div>
+      <div class="genre-tag">Worship</div>
+      <div class="genre-tag">Contemporary</div>
+      <div class="genre-tag">Original</div>
+    </div>
+  </div>
+</section>
+
+<!-- EPISODES -->
+<section class="episodes" id="episodes">
+  <div class="section-inner">
+    <p class="section-label">The Show</p>
+    <h2 class="section-heading">8 Episodes.<br><em>One Winner.</em></h2>
+    <div class="ep-list">
+      <div class="ep-item">
+        <span class="ep-num">EP 1 – 2</span>
+        <span class="ep-title">Open Auditions</span>
+        <span class="ep-desc">Singers of every genre compete for 12 coveted spots. Stories are told. Voices are heard. Memphis takes notice.</span>
+      </div>
+      <div class="ep-item">
+        <span class="ep-num">EP 3 – 4</span>
+        <span class="ep-title">Bootcamp</span>
+        <span class="ep-desc">Coaching, cross-genre challenges, and eliminations. Artists are pushed beyond what they thought was possible.</span>
+      </div>
+      <div class="ep-item">
+        <span class="ep-num">EP 5 – 6</span>
+        <span class="ep-title">The Knockouts</span>
+        <span class="ep-desc">Head-to-head battles. Fan voting opens. Every genre — and every artist — has a real shot.</span>
+      </div>
+      <div class="ep-item">
+        <span class="ep-num">EP 7</span>
+        <span class="ep-title">Semi-Final</span>
+        <span class="ep-desc">Top 4 face off live. Audience vote meets judge decision. Stakes have never been higher.</span>
+      </div>
+      <div class="ep-item">
+        <span class="ep-num">EP 8</span>
+        <span class="ep-title">The Finale</span>
+        <span class="ep-desc">Live ticketed event. Memphis votes. One voice wins it all and carries this city's story to the world.</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW TO ENTER -->
+<section class="enter" id="enter">
+  <div class="section-inner">
+    <p class="section-label">How to Enter</p>
+    <h2 class="section-heading">Four Steps.<br><em>Your Shot.</em></h2>
+    <div class="steps-grid">
+      <div class="step">
+        <div class="step-num">01</div>
+        <h4>Apply Online</h4>
+        <p>Fill out the audition form with your bio, social handles, and music sample. Name, email, and phone are all that's required to start.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">02</div>
+        <h4>Submit Your Music</h4>
+        <p>Upload a sample that shows us who you are. Original songs, covers, freestyle — your choice. Show us your range.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">03</div>
+        <h4>Get Reviewed</h4>
+        <p>Our team reviews every submission. Selected artists are contacted for in-person auditions in Memphis.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">04</div>
+        <h4>Make the 12</h4>
+        <p>12 finalists are chosen. Your story starts. Memphis is watching. The world is next.</p>
+      </div>
+    </div>
+    <div style="text-align:center;margin-top:3.5rem">
+      <a href="the12-register.html" class="btn-primary" style="font-size:0.85rem;padding:1.1rem 3rem">Submit Your Audition →</a>
+    </div>
+  </div>
+</section>
+
+<!-- MEMPHIS BLOCK -->
+<div class="memphis-block">
+  <h2>"Produced in Memphis. Made for the World."</h2>
+  <p>Memphis gave the world Elvis, B.B. King, Al Green, and Three 6 Mafia. The next great voice is still here — waiting for a stage. The 12 is that stage.</p>
+  <a href="the12-register.html" class="btn-outline" style="border-color:rgba(255,255,255,0.4);color:var(--white)">Be Part of History</a>
+</div>
+
+<!-- CTA FINAL -->
+<section class="cta-final">
+  <h2>Are You One of The 12?</h2>
+  <p>Applications are open. Your genre doesn't matter. Your age doesn't matter. Your voice does.</p>
+  <div class="cta-pair">
+    <a href="the12-register.html" class="btn-primary">Submit Your Audition</a>
+    <a href="the12-sponsors.html" class="btn-outline">Corporate Sponsorship</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>
+    The 12 Memphis Vocal Competition &nbsp;·&nbsp;
+    Presented by <a href="https://www.lilrounds.com" target="_blank">Lil Rounds</a> &amp;
+    <a href="https://www.robinsoncreativegroup.com" target="_blank">Robinson Creative Group</a>
+    &nbsp;·&nbsp; Memphis, TN
+  </p>
+  <p style="margin-top:0.75rem;font-size:0.6rem;opacity:0.4">© 2026 The 12 · All Rights Reserved</p>
+</footer>
+
+<script>
+// Animate genre tags on hover
+document.querySelectorAll('.genre-tag').forEach(tag => {
+  tag.addEventListener('mouseenter', () => tag.classList.add('active'));
+  tag.addEventListener('mouseleave', () => {
+    if (!['R&B / Soul','Gospel'].some(g => tag.textContent.includes(g.split('/')[0]))) {
+      tag.classList.remove('active');
+    }
+  });
+});
+
+// Nav scroll effect
+window.addEventListener('scroll', () => {
+  const nav = document.querySelector('nav');
+  nav.style.background = window.scrollY > 80
+    ? 'rgba(8,8,8,0.97)'
+    : 'linear-gradient(to bottom, rgba(8,8,8,0.95), transparent)';
+});
+</script>
+</body>
+</html>
