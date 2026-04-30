@@ -464,6 +464,7 @@ footer a:hover { text-decoration: underline; }
   box-shadow: 0 0 80px rgba(200,168,75,0.2);
 }
 .promo-close {
+  display: none;
   position: fixed;
   top: 1.25rem;
   right: 1.25rem;
@@ -751,15 +752,19 @@ window.addEventListener('scroll', () => {
 function openPromo() {
   const modal = document.getElementById('promoModal');
   const frame = document.getElementById('promoFrame');
+  const btn   = document.getElementById('promoClose');
   frame.src = frame.dataset.src;
   modal.classList.add('active');
+  btn.style.display = 'flex';
   document.body.style.overflow = 'hidden';
 }
 
 function closePromo() {
   const modal = document.getElementById('promoModal');
   const frame = document.getElementById('promoFrame');
+  const btn   = document.getElementById('promoClose');
   modal.classList.remove('active');
+  btn.style.display = 'none';
   setTimeout(() => { frame.src = ''; }, 300);
   document.body.style.overflow = '';
 }
@@ -776,10 +781,11 @@ if (!sessionStorage.getItem('promoShown')) {
 }
 </script>
 
+<button class="promo-close" id="promoClose" aria-label="Close video">✕</button>
+
 <div class="promo-modal" id="promoModal">
   <div class="promo-modal-backdrop" id="promoBackdrop"></div>
   <div class="promo-modal-box">
-    <button class="promo-close" id="promoClose" aria-label="Close video">✕</button>
     <div class="promo-video-wrap">
       <iframe
         id="promoFrame"
