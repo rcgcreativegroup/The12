@@ -441,6 +441,25 @@ footer a:hover { text-decoration: underline; }
   .steps-grid { grid-template-columns: 1fr; }
   .ep-item { grid-template-columns: 1fr; }
   .ep-num { display: none; }
+  .nav-sponsor { display: none; }
+}
+
+.nav-sponsor {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  background: transparent;
+  color: var(--gold);
+  border: 1px solid rgba(200,168,75,0.5);
+  padding: 0.6rem 1.4rem;
+  text-decoration: none;
+  transition: all 0.2s;
+  white-space: nowrap;
+}
+.nav-sponsor:hover {
+  background: rgba(200,168,75,0.1);
+  border-color: var(--gold);
 }
 @media (max-width: 1024px) and (min-width: 769px) {
   .hero-img { object-position: center center; }
@@ -479,6 +498,7 @@ footer a:hover { text-decoration: underline; }
     <li><a href="#enter">How to Enter</a></li>
     <li><a href="sponsors.html">Sponsors</a></li>
   </ul>
+  <a href="sponsors.html" class="nav-sponsor">Become a Sponsor</a>
   <a href="register.html" class="nav-cta">Apply Now</a>
 </nav>
 
