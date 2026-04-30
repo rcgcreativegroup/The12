@@ -456,7 +456,7 @@ footer a:hover { text-decoration: underline; }
 }
 .promo-modal-box {
   position: relative;
-  z-index: 2;
+  z-index: 1000;
   width: 90%;
   max-width: 900px;
   background: var(--black);
@@ -464,23 +464,26 @@ footer a:hover { text-decoration: underline; }
   box-shadow: 0 0 80px rgba(200,168,75,0.2);
 }
 .promo-close {
-  position: absolute;
-  top: -2.5rem;
-  right: 0;
-  background: none;
-  border: none;
-  color: var(--cream);
-  font-size: 1.4rem;
+  position: fixed;
+  top: 1.25rem;
+  right: 1.25rem;
+  z-index: 10000;
+  background: rgba(8,8,8,0.85);
+  border: 1px solid var(--gold);
+  color: var(--gold);
+  font-size: 1.2rem;
+  width: 2.5rem;
+  height: 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   cursor: pointer;
+  transition: background 0.2s, color 0.2s;
   font-family: 'Barlow Condensed', sans-serif;
-  letter-spacing: 0.1em;
-  opacity: 0.7;
-  transition: opacity 0.2s, color 0.2s;
-  padding: 0.25rem 0.5rem;
 }
 .promo-close:hover {
-  opacity: 1;
-  color: var(--gold);
+  background: var(--gold);
+  color: var(--black);
 }
 .promo-video-wrap {
   position: relative;
@@ -490,10 +493,12 @@ footer a:hover { text-decoration: underline; }
 }
 .promo-video-wrap iframe {
   position: absolute;
-  top: 0; left: 0;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
   border: none;
+  z-index: 1;
 }
 .btn-promo {
   font-family: 'Barlow Condensed', sans-serif;
@@ -755,7 +760,7 @@ function closePromo() {
   const modal = document.getElementById('promoModal');
   const frame = document.getElementById('promoFrame');
   modal.classList.remove('active');
-  frame.src = '';
+  setTimeout(() => { frame.src = ''; }, 300);
   document.body.style.overflow = '';
 }
 
