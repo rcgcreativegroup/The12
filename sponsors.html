@@ -528,6 +528,94 @@ footer a { color: var(--gold); text-decoration: none; }
   .stats-strip { grid-template-columns: 1fr 1fr; }
   .addons-grid { grid-template-columns: 1fr; }
 }
+
+/* TAX BANNER */
+.tax-banner {
+  background: var(--crimson);
+  padding: 1.25rem 3rem;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+.tax-banner-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+.tax-icon {
+  font-size: 1.5rem;
+  color: var(--gold);
+  flex-shrink: 0;
+}
+.tax-banner p {
+  font-family: 'Barlow', sans-serif;
+  font-size: 0.88rem;
+  color: rgba(255,255,255,0.9);
+  line-height: 1.6;
+  flex: 1;
+  min-width: 250px;
+}
+.tax-banner p strong {
+  color: var(--white);
+}
+.tax-cta {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  background: var(--gold);
+  color: var(--black);
+  padding: 0.6rem 1.4rem;
+  text-decoration: none;
+  font-weight: 700;
+  white-space: nowrap;
+  flex-shrink: 0;
+  transition: background 0.2s;
+}
+.tax-cta:hover { background: var(--gold2); }
+@media (max-width: 768px) {
+  .tax-banner { padding: 1.25rem 1.5rem; }
+}
+
+/* TIER PRICE */
+.tier-price {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: var(--gold);
+  line-height: 1;
+  margin: 0.4rem 0 0.2rem;
+}
+.tier-card.featured .tier-price {
+  color: var(--gold2);
+}
+@media (max-width: 900px) {
+  #tiers .tiers-grid {
+    grid-template-columns: 1fr !important;
+    max-width: 480px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+/* NONPROFIT BADGE */
+.nonprofit-badge {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 0.75rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--gold);
+  background: rgba(200,168,75,0.08);
+  border: 1px solid rgba(200,168,75,0.25);
+  padding: 0.6rem 1rem;
+  margin-bottom: 1.5rem;
+}
+.nb-dot { color: var(--muted); }
 </style>
 </head>
 <body>
@@ -558,6 +646,21 @@ footer a { color: var(--gold); text-decoration: none; }
       <a href="#tiers" class="btn-gold">View Sponsorship Tiers</a>
       <a href="#contact" class="btn-outline">Request a Conversation</a>
     </div>
+  </div>
+</div>
+
+<!-- TAX BANNER -->
+<div class="tax-banner">
+  <div class="tax-banner-inner">
+    <span class="tax-icon">★</span>
+    <p>
+      <strong>The 12 is produced under Mosaic Institute
+      of the Performing Arts (MIPA)</strong> — a registered
+      501(c)(3) nonprofit organization. Your sponsorship
+      contribution may be fully tax-deductible.
+      Please consult your tax advisor for details.
+    </p>
+    <a href="#contact" class="tax-cta">Become a Sponsor</a>
   </div>
 </div>
 
@@ -728,71 +831,107 @@ footer a { color: var(--gold); text-decoration: none; }
     <p style="color:var(--muted);line-height:1.8;max-width:600px;margin-bottom:0.5rem">
       Three tiers. Each designed to fit your budget, your goals, and the audience you want to reach. Custom packages are available.
     </p>
-    <div class="tiers-grid">
+    <div class="tiers-grid" style="grid-template-columns: repeat(2, 1fr);">
 
-      <!-- TITLE SPONSOR -->
+      <!-- TITLE SPONSOR — $50K -->
       <div class="tier-card featured">
         <div class="featured-banner">Most Visibility</div>
         <div class="tier-top">
           <span class="tier-badge badge-gold">Title Sponsor</span>
-          <div class="tier-name">Presenting Partner</div>
-          <div class="tier-sub">Premier Season-Long Investment</div>
+          <div class="tier-name">Title Sponsor Package</div>
+          <div class="tier-price">$50,000</div>
+          <div class="tier-sub">Premier Partnership · Tax-Deductible</div>
         </div>
         <div class="tier-body">
           <ul class="tier-perks">
-            <li>"The 12, Presented by [Your Brand]" — in all show materials</li>
-            <li>Branded title card opening every episode</li>
-            <li>Exclusive category rights — no competing brands at same tier</li>
-            <li>Live Finale event naming rights</li>
-            <li>Custom branded segment per episode (e.g. "[Brand] Artist of the Week")</li>
-            <li>On-screen logo placement all 8 episodes</li>
-            <li>Product placement / wardrobe integration</li>
-            <li>Social media co-branded posts each episode</li>
-            <li>Custom behind-the-scenes documentary segment</li>
-            <li>VIP access to Live Finale + on-site activation booth</li>
-            <li>Full post-season performance report</li>
+            <li>Premium title listing & logo placement on ALL messaging</li>
+            <li>Potential live or recorded announcement to news & social media outlets</li>
+            <li>YouTube profile link, e-blasts & livestreams</li>
+            <li>Pre-show attendant assigned to escort & host your group</li>
+            <li>Red carpet step & repeat — camera-view logo placement</li>
+            <li>Headliner introduction & team photo</li>
+            <li>Lobby signage & presentation table</li>
+            <li>On-stage presenter delivering grand prize trophies to winners</li>
+            <li>Two champagne viewing boxes</li>
+            <li>4 All Access passes · 4 VIP guest passes</li>
+            <li>24 premium comp tickets</li>
+            <li>2 Gala tables</li>
+            <li>1 Five-minute toast speaker or intro of celebrity keynote</li>
+            <li>Post-event green room & after party access</li>
           </ul>
         </div>
-        <div class="tier-cta"><a href="#contact">Let's Talk →</a></div>
+        <div class="tier-cta"><a href="#contact">Claim This Package →</a></div>
       </div>
 
-      <!-- SEGMENT SPONSOR -->
+      <!-- VIP SPONSOR — $25K -->
       <div class="tier-card">
         <div class="tier-top">
-          <span class="tier-badge badge-silver">Segment Sponsor</span>
-          <div class="tier-name">Feature Partner</div>
-          <div class="tier-sub">Mid-Season Brand Integration</div>
+          <span class="tier-badge badge-silver">VIP Sponsor</span>
+          <div class="tier-name">VIP Sponsor Package</div>
+          <div class="tier-price">$25,000</div>
+          <div class="tier-sub">Premium Partnership · Tax-Deductible</div>
         </div>
         <div class="tier-body">
           <ul class="tier-perks">
-            <li>Named branded segment every episode (e.g. "FedEx Artist Spotlight")</li>
-            <li>On-screen logo placement each episode</li>
-            <li>30-second branded video segment per episode</li>
-            <li>Social media brand mentions + digital assets</li>
-            <li>Live Finale floor presence / sponsor table</li>
-            <li>Post-season performance summary</li>
+            <li>Supporting sponsor listing & logo placement on all messaging</li>
+            <li>Potential live or recorded announcement to news & social media outlets</li>
+            <li>YouTube profile link, e-blasts & livestreams</li>
+            <li>2nd view red carpet step & repeat — camera-view logo placement</li>
+            <li>Headliner introduction & team photo</li>
+            <li>Two champagne viewing boxes</li>
+            <li>2 All Access passes · 2 VIP guest passes</li>
+            <li>1 Gala table & 1 spokesperson introduction</li>
+            <li>12 premium comp tickets</li>
+            <li>Post-event green room & after party access</li>
           </ul>
         </div>
-        <div class="tier-cta"><a href="#contact">Let's Talk →</a></div>
+        <div class="tier-cta"><a href="#contact">Claim This Package →</a></div>
       </div>
 
-      <!-- COMMUNITY SPONSOR -->
+      <!-- ELITE SPONSOR — $10K -->
       <div class="tier-card">
         <div class="tier-top">
-          <span class="tier-badge badge-bronze">Community Sponsor</span>
-          <div class="tier-name">Community Partner</div>
-          <div class="tier-sub">Entry-Level Brand Alignment</div>
+          <span class="tier-badge badge-bronze">Elite Sponsor</span>
+          <div class="tier-name">Elite Sponsor Package</div>
+          <div class="tier-price">$10,000</div>
+          <div class="tier-sub">Featured Partnership · Tax-Deductible</div>
         </div>
         <div class="tier-body">
           <ul class="tier-perks">
-            <li>Brand alignment with youth arts scholarship program</li>
-            <li>Logo featured in all credits and promotional materials</li>
-            <li>Social media brand mention per episode</li>
-            <li>Community activation opportunities at Live Finale</li>
-            <li>Local press + PR mentions</li>
+            <li>Supporting sponsor listing & logo placement on all messaging</li>
+            <li>Potential live or recorded announcement to news & social media outlets</li>
+            <li>YouTube profile link, e-blasts & livestreams</li>
+            <li>Red carpet step & repeat logo placement</li>
+            <li>Introduction & team photo</li>
+            <li>4 orchestra seating comps</li>
+            <li>4 guest sponsor passes</li>
+            <li>12 premium comp tickets</li>
+            <li>1 lobby table if requested</li>
           </ul>
         </div>
-        <div class="tier-cta"><a href="#contact">Let's Talk →</a></div>
+        <div class="tier-cta"><a href="#contact">Claim This Package →</a></div>
+      </div>
+
+      <!-- VALUE ADDED — $5K -->
+      <div class="tier-card">
+        <div class="tier-top">
+          <span class="tier-badge badge-bronze">Value Added</span>
+          <div class="tier-name">Value Added Donors & Supporters</div>
+          <div class="tier-price">$5,000</div>
+          <div class="tier-sub">Community Partnership · Tax-Deductible</div>
+        </div>
+        <div class="tier-body">
+          <ul class="tier-perks">
+            <li>Supporting sponsor listing & logo placement on print messaging</li>
+            <li>E-blast inclusion</li>
+            <li>Red carpet step & repeat introduction & team photo</li>
+            <li>2 orchestra seating comps</li>
+            <li>Guest sponsor passes</li>
+            <li>10 premium comp tickets</li>
+            <li>1 lobby table if requested</li>
+          </ul>
+        </div>
+        <div class="tier-cta"><a href="#contact">Claim This Package →</a></div>
       </div>
 
     </div>
@@ -803,7 +942,11 @@ footer a { color: var(--gold); text-decoration: none; }
 <section style="padding-top:0">
   <div class="section-inner">
     <p class="section-label">À La Carte Add-Ons</p>
-    <p style="color:var(--muted);font-size:0.9rem">Available at any tier — or as standalone placements:</p>
+    <p style="color:var(--muted);font-size:0.9rem;margin-bottom:0.5rem">
+      All sponsorships are contributions to Mosaic Institute
+      of the Performing Arts (MIPA), a 501(c)(3) nonprofit.
+      Additional à la carte placements available at any tier:
+    </p>
     <div class="addons-grid">
       <div class="addon">
         <div class="icon">👗</div>
@@ -863,6 +1006,13 @@ footer a { color: var(--gold); text-decoration: none; }
       <div class="contact-info">
         <h3>We'd love to hear from you.</h3>
         <p>Whether you're ready to commit to a tier or just exploring what's possible, reach out. We'll walk you through the full deck, answer every question, and build a package that fits your goals.</p>
+        <div class="nonprofit-badge">
+          <span>501(c)(3) Nonprofit</span>
+          <span class="nb-dot">·</span>
+          <span>Mosaic Institute of the Performing Arts</span>
+          <span class="nb-dot">·</span>
+          <span>EIN: [Insert EIN]</span>
+        </div>
         <div class="contact-detail">
           <span><span class="ci">🎤</span> The 12 Memphis Vocal Competition</span>
           <span><span class="ci">👤</span> Presented by Lil Rounds</span>
