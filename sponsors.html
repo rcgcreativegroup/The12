@@ -616,6 +616,132 @@ footer a { color: var(--gold); text-decoration: none; }
   margin-bottom: 1.5rem;
 }
 .nb-dot { color: var(--muted); }
+
+/* DISTRIBUTION */
+.dist-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.25rem;
+  margin-bottom: 3rem;
+}
+.dist-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  padding: 1.5rem 1.25rem;
+  text-align: center;
+}
+.dist-icon { font-size: 1.75rem; margin-bottom: 0.75rem; }
+.dist-card h4 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1rem; color: var(--gold); margin-bottom: 0.5rem;
+}
+.dist-card p { font-size: 0.82rem; color: var(--muted); line-height: 1.6; }
+.reach-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.25rem;
+  border-top: 1px solid var(--border);
+  padding-top: 2.5rem;
+}
+.reach-item { text-align: center; }
+.reach-num {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.6rem; font-weight: 700;
+  color: var(--gold); line-height: 1.1; margin-bottom: 0.4rem;
+}
+.reach-label {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 0.68rem; letter-spacing: 0.15em; text-transform: uppercase;
+  color: var(--muted); line-height: 1.4;
+}
+@media (max-width: 900px) {
+  .dist-grid { grid-template-columns: repeat(2, 1fr); }
+  .reach-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 480px) {
+  .dist-grid { grid-template-columns: 1fr; }
+  .reach-grid { grid-template-columns: 1fr; }
+}
+
+/* PRODUCTION */
+.prod-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: start;
+  margin-top: 3rem;
+}
+.prod-specs { display: flex; flex-direction: column; gap: 0; }
+.prod-spec {
+  display: grid;
+  grid-template-columns: 120px 1fr;
+  gap: 1rem;
+  padding: 0.75rem 0;
+  border-bottom: 1px solid var(--border);
+  align-items: start;
+}
+.spec-label {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 0.68rem; letter-spacing: 0.2em; text-transform: uppercase;
+  color: var(--gold); padding-top: 2px;
+}
+.spec-val { font-size: 0.88rem; color: var(--cream); line-height: 1.5; }
+.budget-card {
+  background: var(--card);
+  border: 1px solid var(--gold);
+  padding: 2rem;
+}
+.budget-label {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 0.65rem; letter-spacing: 0.4em; text-transform: uppercase;
+  color: var(--gold); margin-bottom: 1.25rem;
+}
+.budget-min, .budget-rec {
+  display: flex; flex-direction: column; gap: 0.2rem; padding: 1rem 0;
+}
+.budget-tag {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 0.68rem; letter-spacing: 0.15em; text-transform: uppercase;
+  color: var(--muted);
+}
+.budget-amt {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 2rem; font-weight: 700;
+  color: var(--white); line-height: 1;
+}
+.budget-rule { height: 1px; background: var(--border); }
+.budget-breakdown {
+  padding: 1rem 0; display: flex; flex-direction: column; gap: 0.5rem;
+}
+.bb-item {
+  display: flex; justify-content: space-between;
+  font-size: 0.85rem; color: var(--muted); font-family: 'Barlow', sans-serif;
+}
+.bb-item span:last-child { color: var(--gold); font-weight: 500; }
+.budget-note {
+  font-size: 0.75rem; color: var(--gray); font-style: italic;
+  line-height: 1.6; margin-top: 1rem; padding-top: 1rem;
+  border-top: 1px solid var(--border);
+}
+@media (max-width: 768px) {
+  .prod-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+  .prod-spec { grid-template-columns: 100px 1fr; }
+}
+
+/* JUDGES TEASER */
+.judges-teaser {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  background: rgba(200,168,75,0.07);
+  border: 1px solid rgba(200,168,75,0.25);
+  padding: 1.25rem 1.5rem;
+  margin-bottom: 2.5rem;
+  max-width: 700px;
+}
+.judges-icon { font-size: 1.25rem; flex-shrink: 0; margin-top: 2px; }
+.judges-teaser p { font-size: 0.9rem; color: var(--muted); line-height: 1.7; }
+.judges-teaser p strong { color: var(--gold); }
 </style>
 </head>
 <body>
@@ -640,8 +766,15 @@ footer a { color: var(--gold); text-decoration: none; }
   <div class="hero-bg"></div>
   <div class="hero-inner">
     <p class="hero-eyebrow">Corporate Sponsorship</p>
-    <h1>Your Brand.<br><em>Center Stage.</em><br>Every Episode.</h1>
-    <p>The 12 is Memphis's first multi-genre vocal competition series — 8 episodes, 12 artists, one live finale. Position your brand at the intersection of music, culture, and community.</p>
+    <h1>Partner With <em>The 12.</em></h1>
+    <p>
+      A premier 8-episode music competition series
+      targeting Tubi and national streaming platforms —
+      produced in Memphis, built for the world.
+      <strong style="color:var(--gold)">Series Media Launch:
+      June 13, 2026.</strong> Sponsorships are being
+      confirmed now.
+    </p>
     <div class="hero-actions">
       <a href="#tiers" class="btn-gold">View Sponsorship Tiers</a>
       <a href="#contact" class="btn-outline">Request a Conversation</a>
@@ -656,9 +789,9 @@ footer a { color: var(--gold); text-decoration: none; }
     <p>
       <strong>The 12 is produced under Mosaic Institute
       of the Performing Arts (MIPA)</strong> — a registered
-      501(c)(3) nonprofit organization. Your sponsorship
-      contribution may be fully tax-deductible.
-      Please consult your tax advisor for details.
+      501(c)(3) nonprofit organization (EIN: 93-3765202).
+      Your sponsorship contribution may be fully
+      tax-deductible. Please consult your tax advisor.
     </p>
     <a href="#contact" class="tax-cta">Become a Sponsor</a>
   </div>
@@ -667,22 +800,76 @@ footer a { color: var(--gold); text-decoration: none; }
 <!-- STATS STRIP -->
 <div class="stats-strip">
   <div class="stat-item">
+    <div class="stat-num">$500K</div>
+    <div class="stat-label">Recommended<br>season budget</div>
+  </div>
+  <div class="stat-item">
     <div class="stat-num">8</div>
-    <div class="stat-label">Episodes of<br>branded content</div>
+    <div class="stat-label">Episodes ·<br>30 min each</div>
   </div>
   <div class="stat-item">
-    <div class="stat-num">12</div>
-    <div class="stat-label">Featured<br>vocalists</div>
+    <div class="stat-num">300K+</div>
+    <div class="stat-label">Projected digital<br>viewers Season 1</div>
   </div>
   <div class="stat-item">
-    <div class="stat-num">21–55</div>
-    <div class="stat-label">Core audience<br>age range</div>
-  </div>
-  <div class="stat-item">
-    <div class="stat-num">100K+</div>
-    <div class="stat-label">Annual Beale Street<br>live music fans</div>
+    <div class="stat-num">1M+</div>
+    <div class="stat-label">Projected social<br>media impressions</div>
   </div>
 </div>
+
+<!-- DISTRIBUTION & REACH -->
+<section id="distribution" style="background:var(--coal);">
+  <div class="section-inner">
+    <p class="section-label">Distribution & Reach</p>
+    <h2 class="section-heading">Built for <em>Every Screen.</em></h2>
+    <p style="color:var(--muted);line-height:1.8;max-width:650px;margin-bottom:3rem">
+      The 12 is being developed for multi-platform
+      distribution — from streaming to social to live —
+      giving sponsors sustained visibility across every
+      touchpoint of the season.
+    </p>
+    <div class="dist-grid">
+      <div class="dist-card">
+        <div class="dist-icon">📺</div>
+        <h4>Primary Platform</h4>
+        <p>Targeted for Tubi or comparable ad-supported streaming — the fastest growing free platforms with 80M+ registered users</p>
+      </div>
+      <div class="dist-card">
+        <div class="dist-icon">▶️</div>
+        <h4>YouTube</h4>
+        <p>Full episodes + extended content. Permanent searchable library that builds viewership long after the season ends</p>
+      </div>
+      <div class="dist-card">
+        <div class="dist-icon">📱</div>
+        <h4>Short-Form Social</h4>
+        <p>30+ clips for Instagram and TikTok. Highlight reels, artist features, and behind-the-scenes content</p>
+      </div>
+      <div class="dist-card">
+        <div class="dist-icon">📡</div>
+        <h4>Regional Media</h4>
+        <p>Local broadcast partnerships and press coverage across the Memphis and Mid-South market</p>
+      </div>
+    </div>
+    <div class="reach-grid">
+      <div class="reach-item">
+        <div class="reach-num">2,000–3,000</div>
+        <div class="reach-label">Live finale attendees</div>
+      </div>
+      <div class="reach-item">
+        <div class="reach-num">100K–300K+</div>
+        <div class="reach-label">Digital views · Season 1</div>
+      </div>
+      <div class="reach-item">
+        <div class="reach-num">500K–1M+</div>
+        <div class="reach-label">Social media impressions</div>
+      </div>
+      <div class="reach-item">
+        <div class="reach-num">15,000+</div>
+        <div class="reach-label">Direct network reach via arts & education organizations</div>
+      </div>
+    </div>
+  </div>
+</section>
 
 <!-- WHY SPONSOR -->
 <section id="why">
@@ -786,6 +973,79 @@ footer a { color: var(--gold); text-decoration: none; }
   </div>
 </section>
 
+<!-- PRODUCTION & BUDGET -->
+<section id="production" style="background:var(--deep);">
+  <div class="section-inner">
+    <p class="section-label">Production</p>
+    <h2 class="section-heading">Professional Quality.<br><em>Broadcast Standard.</em></h2>
+    <div class="prod-grid">
+      <div class="prod-left">
+        <p style="color:var(--muted);line-height:1.8;margin-bottom:1.5rem">
+          The 12 is being produced with a focus on
+          professional scalability — broadcast-style
+          presentation built to compete on national
+          streaming platforms from day one.
+        </p>
+        <div class="prod-specs">
+          <div class="prod-spec">
+            <span class="spec-label">Format</span>
+            <span class="spec-val">8 Episodes · 30 minutes each</span>
+          </div>
+          <div class="prod-spec">
+            <span class="spec-label">Media Launch</span>
+            <span class="spec-val">June 13, 2026</span>
+          </div>
+          <div class="prod-spec">
+            <span class="spec-label">Filming</span>
+            <span class="spec-val">Multi-camera · Professional lighting & audio</span>
+          </div>
+          <div class="prod-spec">
+            <span class="spec-label">Post</span>
+            <span class="spec-val">Structured storytelling · Broadcast-style editing</span>
+          </div>
+          <div class="prod-spec">
+            <span class="spec-label">Output</span>
+            <span class="spec-val">8 episodes + 30+ short-form clips + BTS content</span>
+          </div>
+          <div class="prod-spec">
+            <span class="spec-label">Partners</span>
+            <span class="spec-val">VESSEL Media LLC · Gravity Studios</span>
+          </div>
+          <div class="prod-spec">
+            <span class="spec-label">501(c)(3)</span>
+            <span class="spec-val">Mosaic Institute of Performing Arts · EIN: 93-3765202</span>
+          </div>
+        </div>
+      </div>
+      <div class="prod-right">
+        <div class="budget-card">
+          <div class="budget-label">PROJECT BUDGET</div>
+          <div class="budget-min">
+            <span class="budget-tag">Minimum Threshold</span>
+            <span class="budget-amt">$350,000</span>
+          </div>
+          <div class="budget-rule"></div>
+          <div class="budget-rec">
+            <span class="budget-tag">Recommended Budget</span>
+            <span class="budget-amt" style="color:var(--gold2)">$500,000 – $550,000</span>
+          </div>
+          <div class="budget-rule"></div>
+          <div class="budget-breakdown">
+            <div class="bb-item"><span>Production & Filming</span><span>40%</span></div>
+            <div class="bb-item"><span>Marketing & PR</span><span>25%</span></div>
+            <div class="bb-item"><span>Staffing & Talent</span><span>20%</span></div>
+            <div class="bb-item"><span>Venue & Events</span><span>15%</span></div>
+          </div>
+          <p class="budget-note">
+            Full production calendar issued to confirmed
+            sponsors upon execution of LOI.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- MARKET DATA -->
 <section class="market" id="market">
   <div class="section-inner">
@@ -831,6 +1091,15 @@ footer a { color: var(--gold); text-decoration: none; }
     <p style="color:var(--muted);line-height:1.8;max-width:600px;margin-bottom:0.5rem">
       Three tiers. Each designed to fit your budget, your goals, and the audience you want to reach. Custom packages are available.
     </p>
+    <div class="judges-teaser">
+      <span class="judges-icon">⭐</span>
+      <p>
+        <strong>Selection of celebrity judges and industry mentors</strong> is currently in
+        progress. Title sponsors will be invited to participate in the final selection process
+        and official announcements.
+      </p>
+    </div>
+
     <div class="tiers-grid" style="grid-template-columns: repeat(2, 1fr);">
 
       <!-- TITLE SPONSOR — $50K -->
@@ -844,6 +1113,7 @@ footer a { color: var(--gold); text-decoration: none; }
         </div>
         <div class="tier-body">
           <ul class="tier-perks">
+            <li>Named in opening title card of all 8 episodes — "The 12, Presented by [Brand]"</li>
             <li>Premium title listing & logo placement on ALL messaging</li>
             <li>Potential live or recorded announcement to news & social media outlets</li>
             <li>YouTube profile link, e-blasts & livestreams</li>
@@ -873,6 +1143,7 @@ footer a { color: var(--gold); text-decoration: none; }
         </div>
         <div class="tier-body">
           <ul class="tier-perks">
+            <li>Brand featured in supporting credit on all 8 episodes across all platforms</li>
             <li>Supporting sponsor listing & logo placement on all messaging</li>
             <li>Potential live or recorded announcement to news & social media outlets</li>
             <li>YouTube profile link, e-blasts & livestreams</li>
@@ -898,6 +1169,7 @@ footer a { color: var(--gold); text-decoration: none; }
         </div>
         <div class="tier-body">
           <ul class="tier-perks">
+            <li>Brand logo included in episode credits and all digital distribution materials</li>
             <li>Supporting sponsor listing & logo placement on all messaging</li>
             <li>Potential live or recorded announcement to news & social media outlets</li>
             <li>YouTube profile link, e-blasts & livestreams</li>
@@ -922,6 +1194,7 @@ footer a { color: var(--gold); text-decoration: none; }
         </div>
         <div class="tier-body">
           <ul class="tier-perks">
+            <li>Brand logo on select promotional materials across the full season</li>
             <li>Supporting sponsor listing & logo placement on print messaging</li>
             <li>E-blast inclusion</li>
             <li>Red carpet step & repeat introduction & team photo</li>
@@ -1005,13 +1278,29 @@ footer a { color: var(--gold); text-decoration: none; }
     <div class="contact-grid">
       <div class="contact-info">
         <h3>We'd love to hear from you.</h3>
-        <p>Whether you're ready to commit to a tier or just exploring what's possible, reach out. We'll walk you through the full deck, answer every question, and build a package that fits your goals.</p>
+        <p>
+          The 12 is a scalable entertainment platform
+          designed to elevate Memphis talent, strengthen
+          the city's cultural presence, and create a
+          lasting media property with regional and
+          national reach. We invite you to partner with
+          us at the ground level as we bring this
+          vision to life.
+        </p>
+        <p style="margin-top:1rem;color:var(--muted);font-size:0.88rem;line-height:1.7">
+          <strong style="color:var(--cream)">Next Steps:</strong> Schedule a 30-minute
+          partnership briefing to review the full
+          production deck, confirm your sponsorship
+          tier, and execute an LOI. The full production
+          calendar is issued to all confirmed sponsors
+          immediately upon signing.
+        </p>
         <div class="nonprofit-badge">
           <span>501(c)(3) Nonprofit</span>
           <span class="nb-dot">·</span>
           <span>Mosaic Institute of the Performing Arts</span>
           <span class="nb-dot">·</span>
-          <span>EIN: [Insert EIN]</span>
+          <span>EIN: 93-3765202</span>
         </div>
         <div class="contact-detail">
           <span><span class="ci">🎤</span> The 12 Memphis Vocal Competition</span>
@@ -1066,7 +1355,7 @@ footer a { color: var(--gold); text-decoration: none; }
               <option>Title Sponsor Package — $50,000</option>
               <option>VIP Sponsor Package — $25,000</option>
               <option>Elite Sponsor Package — $10,000</option>
-              <option>Value Added Donors & Supporters — $5,000</option>
+              <option>Value Added Donors &amp; Supporters — $5,000</option>
               <option>Not sure yet — just exploring</option>
             </select>
           </div>
